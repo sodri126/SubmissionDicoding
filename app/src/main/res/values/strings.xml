@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Submission 4</string>
+    <string name="list_catalogue">List Catalogue</string>
+    <string name="list_favorite_catalogue">List Favorite Catalogue</string>
+    <string name="tab_movies">Movies</string>
+    <string name="tab_tv_shows">TV Shows</string>
+    <string name="item_title_movie">Title Movie Here</string>
+    <string name="item_image_content_description">This is Poster Image Movie</string>
+    <string name="detail_image_backdrop_content_description">This is a backdrop image movie</string>
+    <string name="detail_image_poster_content_description">This is a poster image movie</string>
+    <string name="detail_image_rate_movie">8.6</string>
+    <string name="detail_image_total_minutes_movie">2h 15m</string>
+    <string name="detail_image_release_date_movie">October 5, 2019</string>
+    <string name="detail_txt_label_genres">Genre(s):</string>
+    <string name="detail_txt_value_genres">Adventure, Fantasy, Action</string>
+    <string name="detail_txt_label_language">Language:</string>
+    <string name="detail_txt_value_language">English</string>
+    <string name="detail_txt_label_status">Status:</string>
+    <string name="detail_txt_value_status">Released</string>
+    <string name="detail_txt_label_overview">Overview</string>
+    <string name="detail_label_runtime_hour">h</string>
+    <string name="detail_label_runtime_minute">m</string>
+    <string name="general_setting_language">Setting Language</string>
+    <string name="general_en">English</string>
+    <string name="general_ok">OK</string>
+    <string name="general_add_successfully">Add to favorite is successfully</string>
+    <string name="general_delete_succesffully">Delete favorite is successfully</string>
+    <string name="general_homepage">Homepage</string>
+    <string name="bottom_navigation_home">Home</string>
+    <string name="bottom_navigation_favorite">Favorite</string>
+</resources>

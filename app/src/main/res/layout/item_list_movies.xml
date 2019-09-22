@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_movie_card_view_height"
+        android:layout_marginTop="@dimen/general_space_big"
+        android:layout_marginRight="@dimen/general_space_big"
+        android:layout_marginLeft="@dimen/general_space_big"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+            android:id="@+id/container_card_view"
+            android:layout_width="@dimen/general_zero_dp"
+            android:layout_height="@dimen/item_movie_card_view_container_height"
+            card_view:cardCornerRadius="@dimen/item_movie_card_view_radius"
+            card_view:cardElevation="@dimen/general_zero_dp"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_item_movie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+            <ImageView
+                    android:id="@+id/img_movie"
+                    android:layout_width="@dimen/item_movie_image_width"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    app:cornerRadius="@dimen/item_movie_card_view_radius"
+                    android:contentDescription="@string/item_image_content_description"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/no_image_available" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="@+id/img_movie"
+                app:layout_constraintTop_toTopOf="@+id/img_movie"
+                android:background="@color/colorRating">
+                <TextView
+                    android:id="@+id/txt_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_star_yellow_16dp"
+                    style="@style/NormalLabel.DetailMovie"
+                    android:text="@string/detail_image_rate_movie"
+                    android:padding="@dimen/general_space_rating"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <ProgressBar
+                android:id="@+id/progress_bar_img"
+                android:layout_width="@dimen/progress_bar_width_normal"
+                android:layout_height="@dimen/progress_bar_height_normal"
+                android:progressBackgroundTint="@android:color/white"
+                android:indeterminateTint="@color/colorPrimaryDark"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@+id/img_movie"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/img_movie" />
+
+            <TextView
+                android:id="@+id/txt_title_movie"
+                style="@style/LargeLabel.ItemMovie"
+                android:text="@string/item_title_movie"
+                android:paddingTop="@dimen/general_space_small"
+                app:layout_constraintLeft_toRightOf="@+id/img_movie"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                    android:id="@+id/txt_release_date"
+                    style="@style/NormalLabel.ItemMovie"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_title_movie"
+                    app:layout_constraintLeft_toRightOf="@+id/img_movie"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:text="@string/item_title_movie" />
+
+            <TextView
+                android:id="@+id/txt_content"
+                style="@style/NormalLabel.ItemMovie"
+                android:lineSpacingMultiplier="@dimen/line_spacing_text"
+                app:layout_constraintLeft_toRightOf="@+id/img_movie"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_release_date" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_favorite_border_white_24dp"
+        android:backgroundTint="@color/colorFavorite"
+        app:borderWidth="@dimen/item_movie_card_fab_border_width"
+        style="?android:attr/borderlessButtonStyle"
+        app:layout_constraintBottom_toBottomOf="@+id/container_card_view"
+        card_view:layout_constraintTop_toBottomOf="@+id/container_card_view"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="@dimen/general_space_normal"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

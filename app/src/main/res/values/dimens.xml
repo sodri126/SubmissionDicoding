@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_movie_card_view_height">210dp</dimen>
+    <dimen name="item_movie_card_view_container_height">180dp</dimen>
+    <dimen name="item_movie_card_view_radius">5dp</dimen>
+    <dimen name="item_movie_image_width">100dp</dimen>
+    <dimen name="item_movie_card_fab_border_width">0dp</dimen>
+    <dimen name="general_space_normal">10dp</dimen>
+    <dimen name="general_zero_dp">0dp</dimen>
+    <dimen name="general_space_big">15dp</dimen>
+    <dimen name="general_space_small">5dp</dimen>
+    <dimen name="general_space_rating">3dp</dimen>
+    <dimen name="general_label_normal">14sp</dimen>
+    <dimen name="general_label_slightly_normal">16sp</dimen>
+    <dimen name="general_divider_width">1dp</dimen>
+    <dimen name="detail_movie_image_backdrop_view_height">250dp</dimen>
+    <dimen name="detail_movie_image_poster_view_width">100dp</dimen>
+    <dimen name="detail_movie_image_poster_view_height">150dp</dimen>
+    <dimen name="progress_bar_width_normal">64dp</dimen>
+    <dimen name="progress_bar_height_normal">64dp</dimen>
+    <dimen name="line_spacing_text">1.25</dimen>
+</resources>

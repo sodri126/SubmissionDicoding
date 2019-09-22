@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextColor">@color/colorWhiteOpacity</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="tabRippleColor">@android:color/white</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">fill</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Label">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/general_space_normal</item>
+        <item name="android:layout_marginRight">@dimen/general_space_normal</item>
+        <item name="android:paddingBottom">@dimen/general_space_small</item>
+        <item name="android:typeface">normal</item>
+    </style>
+
+    <style name="NormalLabel" parent="Label">
+        <item name="android:textSize">@dimen/general_label_normal</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="LargeLabel" parent="Label">
+        <item name="android:textSize">@dimen/general_label_slightly_normal</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="LargeLabel.ItemMovie" parent="LargeLabel">
+        <item name="android:textColor">@color/colorBlackLabel</item>
+    </style>
+
+    <style name="NormalLabel.ItemMovie" parent="NormalLabel">
+        <item name="android:textColor">@color/colorBlackLabel</item>
+    </style>
+
+    <style name="LargeLabel.DetailMovie" parent="LargeLabel">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="NormalLabel.DetailMovie" parent="NormalLabel">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_marginLeft">@dimen/general_zero_dp</item>
+        <item name="android:layout_marginRight">@dimen/general_zero_dp</item>
+        <item name="android:paddingBottom">@dimen/general_zero_dp</item>
+    </style>
+
+    <style name="NormalLabel.DetailMovie.Subtitle" parent="NormalLabel.DetailMovie">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/general_label_slightly_normal</item>
+        <item name="android:paddingBottom">@dimen/general_space_small</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NormalLabel.DetailMovie.WhiteOpacity" parent="NormalLabel.DetailMovie">
+        <item name="android:color">@color/colorSecondaryWhiteOpacity</item>
+    </style>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Submisi 4</string>
+    <string name="list_catalogue">Daftar Katalog</string>
+    <string name="list_favorite_catalogue">Daftar Favorit Katalog</string>
+    <string name="tab_movies">Film</string>
+    <string name="tab_tv_shows">Acara TV</string>
+    <string name="item_title_movie">Judul Film</string>
+    <string name="item_image_content_description">Ini adalah gambar film poster</string>
+    <string name="detail_image_backdrop_content_description">Ini adalah gambar latar belakang</string>
+    <string name="detail_image_poster_content_description">Ini adalah gambar film poster</string>
+    <string name="detail_image_rate_movie">8.6</string>
+    <string name="detail_image_total_minutes_movie">2j 15m</string>
+    <string name="detail_image_release_date_movie">October 5, 2019</string>
+    <string name="detail_txt_label_genres">Kategori:</string>
+    <string name="detail_txt_value_genres">Petualangan, Fantasi, Aksi</string>
+    <string name="detail_txt_label_language">Bahasa:</string>
+    <string name="detail_txt_value_language">Indonesia</string>
+    <string name="detail_txt_label_status">Status:</string>
+    <string name="detail_txt_value_status">Dirilis</string>
+    <string name="detail_txt_label_overview">Ringkasan</string>
+    <string name="detail_label_runtime_hour">j</string>
+    <string name="detail_label_runtime_minute">m</string>
+    <string name="general_setting_language">Atur Bahasa</string>
+    <string name="general_en">Bahasa Inggris</string>
+    <string name="general_ok">OKE</string>
+    <string name="general_add_successfully">Penambahan favorit berhasil</string>
+    <string name="general_delete_succesffully">Menghapus favorit berhasil</string>
+    <string name="general_homepage">Halaman Utama</string>
+    <string name="bottom_navigation_home">Halaman Utama</string>
+    <string name="bottom_navigation_favorite">Favorit</string>
+</resources>
