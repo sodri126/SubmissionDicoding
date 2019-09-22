@@ -12,9 +12,9 @@ import com.example.submission4.data.api.model.DiscoverTv
 import com.example.submission4.ui.listfilm.activity.MainActivity
 import com.example.submission4.ui.listfilm.adapter.MovieAdapter
 import com.example.submission4.ui.listfilm.viewmodel.TvShowViewModel
+import com.example.submission4.utils.Result
 import kotlinx.android.synthetic.main.fragment_tv_show.*
 import org.koin.androidx.scope.currentScope
-import com.example.submission4.utils.Result
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TvShowFragment : BaseFragment<TvShowViewModel>() {
@@ -37,9 +37,10 @@ class TvShowFragment : BaseFragment<TvShowViewModel>() {
         super.setUpObserve()
         viewModel.listTvLiveData.observe(viewLifecycleOwner, Observer {
             it?.let {
-                when(it) {
+                when (it) {
                     is Result.Success -> {
-                        val adapter = MovieAdapter<DiscoverTv>(clickItem = this.activity as MainActivity)
+                        val adapter =
+                            MovieAdapter<DiscoverTv>(clickItem = this.activity as MainActivity)
                         adapter.movies = it.data.results
                         rv_tv_shows.adapter = adapter
                         progress_bar.visibility = View.GONE

@@ -7,12 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 
-abstract class BaseFragment<VM: ViewModel>: Fragment() {
+abstract class BaseFragment<VM : ViewModel> : Fragment() {
     open val viewModel: VM? = null
 
     abstract fun getLayoutRestId(): Int
 
-    override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(getLayoutRestId(), container, false)
     }
 

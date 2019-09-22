@@ -8,9 +8,12 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.example.submission4.R
 import com.example.submission4.ui.listfilm.fragment.MovieFragment
 import com.example.submission4.ui.listfilm.fragment.TvShowFragment
-import java.lang.Exception
 
-class MainViewPagerAdapter(private val context: Context, supportFragmentManager: FragmentManager, private val tabCount: Int): FragmentStatePagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class MainViewPagerAdapter(
+    private val context: Context,
+    supportFragmentManager: FragmentManager,
+    private val tabCount: Int
+) : FragmentStatePagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
@@ -23,7 +26,7 @@ class MainViewPagerAdapter(private val context: Context, supportFragmentManager:
     override fun getCount(): Int = tabCount
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return when(position) {
+        return when (position) {
             0 -> this.context.getString(R.string.tab_movies)
             1 -> this.context.getString(R.string.tab_tv_shows)
             else -> this.context.getString(R.string.tab_movies)

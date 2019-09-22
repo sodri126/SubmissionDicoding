@@ -4,29 +4,29 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.submission4.data.local.entity.MovieEntity
+import com.example.submission4.data.local.entity.TvShowEntity
 import com.example.submission4.data.repository.MovieRepository
 import com.example.submission4.utils.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MovieFavoriteViewModel(private val movieRepository: MovieRepository) : ViewModel() {
-    private val mutableListMovies = MutableLiveData<Result<List<MovieEntity>>>()
+class TvShowFavoriteViewModel(private val movieRepository: MovieRepository) : ViewModel() {
+    private val mutableListTvShows = MutableLiveData<Result<List<TvShowEntity>>>()
 
     init {
         getListMovies()
     }
 
-    fun getLiveDataListMovie(): LiveData<Result<List<MovieEntity>>> = mutableListMovies
+    fun getLiveDataListTv(): LiveData<Result<List<TvShowEntity>>> = mutableListTvShows
 
     private fun getListMovies() {
         viewModelScope.launch {
-            mutableListMovies.postValue(Result.Loading)
+            mutableListTvShows.postValue(Result.Loading)
             val listMovie = withContext(Dispatchers.IO) {
-                movieRepository.getLocalListMovies()
+                movieRepository.getLocalListTvShows()
             }
-            mutableListMovies.postValue(listMovie)
+            mutableListTvShows.postValue(listMovie)
         }
     }
 }

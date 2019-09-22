@@ -36,7 +36,8 @@ object FilmServiceFactory {
 
     fun settingOkHttpClient(): OkHttpClient {
         val logger = HttpLoggingInterceptor()
-        logger.level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.BASIC
+        logger.level =
+            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.BASIC
 
         return OkHttpClient.Builder()
             .retryOnConnectionFailure(false)
@@ -49,7 +50,7 @@ object FilmServiceFactory {
     fun getService(okHttpClient: OkHttpClient, gson: Gson): FilmService {
         return INSTANCE ?: synchronized(this) {
             val instance = Retrofit.Builder()
-            .baseUrl("${BuildConfig.SERVER_URL}/${BuildConfig.API_VERSION}/")
+                .baseUrl("${BuildConfig.SERVER_URL}/${BuildConfig.API_VERSION}/")
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())

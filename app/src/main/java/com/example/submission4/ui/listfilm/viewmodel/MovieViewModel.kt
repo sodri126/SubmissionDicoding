@@ -11,11 +11,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MovieViewModel(private val movieRepository: MovieRepository): ViewModel() {
-    val listMovieLiveData: MutableLiveData<Result<DiscoverResponse<DiscoverMovie>>> = MutableLiveData()
+class MovieViewModel(private val movieRepository: MovieRepository) : ViewModel() {
+    val listMovieLiveData: MutableLiveData<Result<DiscoverResponse<DiscoverMovie>>> =
+        MutableLiveData()
+
     init {
         fetchListMovie()
     }
+
     private fun fetchListMovie() {
         viewModelScope.launch {
             listMovieLiveData.postValue(Result.Loading)

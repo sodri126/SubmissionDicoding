@@ -4,7 +4,6 @@
     <item
         android:id="@+id/homepage"
         android:icon="@drawable/ic_home_white_24dp"
-        app:showAsAction="always"
-        android:title="@string/general_homepage">
-    </item>
+        android:title="@string/general_homepage"
+        app:showAsAction="always"></item>
 </menu>

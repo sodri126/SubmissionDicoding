@@ -5,19 +5,19 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.submission4.ui.listfilm.adapter.MovieAdapter
 import com.example.submission4.R
 import com.example.submission4.base.BaseActivity
 import com.example.submission4.base.BaseFragment
 import com.example.submission4.data.api.model.DiscoverMovie
 import com.example.submission4.ui.listfilm.activity.MainActivity
+import com.example.submission4.ui.listfilm.adapter.MovieAdapter
 import com.example.submission4.ui.listfilm.viewmodel.MovieViewModel
 import com.example.submission4.utils.Result
 import kotlinx.android.synthetic.main.fragment_movie.*
 import org.koin.androidx.scope.currentScope
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MovieFragment: BaseFragment<MovieViewModel>() {
+class MovieFragment : BaseFragment<MovieViewModel>() {
     override val viewModel: MovieViewModel by currentScope.viewModel(this)
 
     override fun getLayoutRestId(): Int = R.layout.fragment_movie
@@ -37,9 +37,10 @@ class MovieFragment: BaseFragment<MovieViewModel>() {
         super.setUpObserve()
         viewModel.listMovieLiveData.observe(viewLifecycleOwner, Observer {
             it?.let {
-                when(it) {
+                when (it) {
                     is Result.Success -> {
-                        val adapter = MovieAdapter<DiscoverMovie>(clickItem = this.activity as MainActivity)
+                        val adapter =
+                            MovieAdapter<DiscoverMovie>(clickItem = this.activity as MainActivity)
                         adapter.movies = it.data.results
                         rv_movies.adapter = adapter
                         progress_bar.visibility = View.GONE

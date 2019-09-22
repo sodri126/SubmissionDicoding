@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 
-abstract class BaseActivity<VM: ViewModel>: AppCompatActivity() {
+abstract class BaseActivity<VM : ViewModel> : AppCompatActivity() {
     open val viewModel: VM? = null
 
     abstract fun getLayoutRestId(): Int

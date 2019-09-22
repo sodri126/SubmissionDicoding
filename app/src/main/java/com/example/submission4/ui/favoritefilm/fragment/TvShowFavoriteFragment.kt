@@ -1,32 +1,61 @@
 package com.example.submission4.ui.favoritefilm.fragment
 
-
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.content.res.Configuration
 import android.view.View
-import android.view.ViewGroup
-
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission4.R
+import com.example.submission4.base.BaseActivity
+import com.example.submission4.base.BaseFragment
+import com.example.submission4.data.local.entity.TvShowEntity
+import com.example.submission4.ui.favoritefilm.viewmodel.TvShowFavoriteViewModel
+import com.example.submission4.ui.listfilm.activity.MainActivity
+import com.example.submission4.ui.listfilm.adapter.MovieAdapter
+import com.example.submission4.utils.Result
+import kotlinx.android.synthetic.main.fragment_movie.progress_bar
+import kotlinx.android.synthetic.main.fragment_tv_show.*
+import org.koin.androidx.scope.currentScope
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TvShowFavoriteFragment : Fragment() {
+class TvShowFavoriteFragment : BaseFragment<TvShowFavoriteViewModel>() {
+    override val viewModel: TvShowFavoriteViewModel by currentScope.viewModel(this)
 
-    companion object {
-        // singleton
-        @Volatile private var INSTANCE: TvShowFavoriteFragment? = null
-        fun getInstance(): TvShowFavoriteFragment {
-            return INSTANCE
-                ?: synchronized(this){
-                    TvShowFavoriteFragment().also {
-                        INSTANCE = it
+    override fun getLayoutRestId(): Int = R.layout.fragment_tv_show
+
+    override fun setUpView() {
+        resources.let {
+            if (it.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                rv_tv_shows.layoutManager = LinearLayoutManager(this.context)
+            } else {
+                rv_tv_shows.layoutManager = GridLayoutManager(this.context, 2)
+            }
+        }
+        rv_tv_shows.setHasFixedSize(true)
+    }
+
+    override fun setUpObserve() {
+        super.setUpObserve()
+        viewModel.getLiveDataListTv().observe(viewLifecycleOwner, Observer {
+            it?.let {
+                when (it) {
+                    is Result.Success -> {
+                        val adapter =
+                            MovieAdapter<TvShowEntity>(clickItem = this.activity as MainActivity)
+                        adapter.movies = it.data as ArrayList<TvShowEntity>
+                        rv_tv_shows.adapter = adapter
+                        progress_bar.visibility = View.GONE
+                    }
+                    is Result.Error -> {
+                        val baseActivity = activity as BaseActivity<*>
+                        baseActivity.onError(it.message)
+                        progress_bar.visibility = View.GONE
+                    }
+                    is Result.Loading -> {
+                        progress_bar.visibility = View.VISIBLE
                     }
                 }
-        }
+            }
+        })
     }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_tv_show_favorite, container, false)
-    }
-
-
 }

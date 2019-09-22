@@ -38,9 +38,10 @@ class MovieFavoriteFragment : BaseFragment<MovieFavoriteViewModel>() {
         super.setUpObserve()
         viewModel.getLiveDataListMovie().observe(viewLifecycleOwner, Observer {
             it?.let {
-                when(it) {
+                when (it) {
                     is Result.Success -> {
-                        val adapter = MovieAdapter<MovieEntity>(clickItem = this.activity as MainActivity)
+                        val adapter =
+                            MovieAdapter<MovieEntity>(clickItem = this.activity as MainActivity)
                         adapter.movies = it.data as ArrayList<MovieEntity>
                         rv_movies.adapter = adapter
                         progress_bar.visibility = View.GONE

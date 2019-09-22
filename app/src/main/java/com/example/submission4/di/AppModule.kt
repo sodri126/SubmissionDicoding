@@ -4,7 +4,9 @@ import com.example.submission4.ui.detailfilm.DetailActivity
 import com.example.submission4.ui.detailfilm.DetailViewModel
 import com.example.submission4.ui.favoritefilm.fragment.FavoriteFragment
 import com.example.submission4.ui.favoritefilm.fragment.MovieFavoriteFragment
+import com.example.submission4.ui.favoritefilm.fragment.TvShowFavoriteFragment
 import com.example.submission4.ui.favoritefilm.viewmodel.MovieFavoriteViewModel
+import com.example.submission4.ui.favoritefilm.viewmodel.TvShowFavoriteViewModel
 import com.example.submission4.ui.listfilm.activity.MainActivity
 import com.example.submission4.ui.listfilm.fragment.MovieFragment
 import com.example.submission4.ui.listfilm.fragment.TvShowFragment
@@ -34,5 +36,9 @@ val appModule = module {
 
     scope(named<MovieFavoriteFragment>()) {
         viewModel { MovieFavoriteViewModel(get()) }
+    }
+
+    scope(named<TvShowFavoriteFragment>()) {
+        viewModel { TvShowFavoriteViewModel(get()) }
     }
 }

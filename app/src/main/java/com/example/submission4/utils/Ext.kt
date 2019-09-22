@@ -12,13 +12,17 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.example.submission4.R
-import java.lang.Exception
 
-fun ImageView.glideLoadImage(url: String, width: Int = 760, height: Int = 400, progressBar: ProgressBar) {
+fun ImageView.glideLoadImage(
+    url: String,
+    width: Int = 760,
+    height: Int = 400,
+    progressBar: ProgressBar
+) {
     Glide.with(context)
         .load(url)
         .placeholder(R.drawable.no_image_available)
-        .listener(object: RequestListener<Drawable> {
+        .listener(object : RequestListener<Drawable> {
             override fun onLoadFailed(
                 e: GlideException?,
                 model: Any?,
@@ -46,7 +50,7 @@ fun ImageView.glideLoadImage(url: String, width: Int = 760, height: Int = 400, p
         .into(this)
 }
 
-suspend fun <T: Any> apiCall(call: suspend() -> Result<T>): Result<T> = try {
+suspend fun <T : Any> apiCall(call: suspend () -> Result<T>): Result<T> = try {
     call.invoke()
 } catch (e: Exception) {
     Result.Error(e.message as String)
