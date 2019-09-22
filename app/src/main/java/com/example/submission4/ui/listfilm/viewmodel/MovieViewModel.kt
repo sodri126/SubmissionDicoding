@@ -19,7 +19,7 @@ class MovieViewModel(private val movieRepository: MovieRepository) : ViewModel()
         fetchListMovie()
     }
 
-    private fun fetchListMovie() {
+    fun fetchListMovie() {
         viewModelScope.launch {
             listMovieLiveData.postValue(Result.Loading)
             val listMovie = withContext(Dispatchers.IO) {

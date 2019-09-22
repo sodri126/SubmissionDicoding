@@ -1,7 +1,6 @@
 package com.example.submission4.ui.listfilm.activity
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
@@ -50,7 +49,6 @@ class MainActivity : BaseActivity<MainViewModel>(), IClickItem {
             loadFragment(currentFragment)
         }
     }
-
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -189,10 +187,5 @@ class MainActivity : BaseActivity<MainViewModel>(), IClickItem {
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             .addToBackStack(null)
             .commit()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        Activity.RESULT_OK
     }
 }
