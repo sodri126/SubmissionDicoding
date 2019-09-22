@@ -150,13 +150,13 @@ class MainActivity : BaseActivity<MainViewModel>(), IClickItem {
         when(it.itemId) {
             R.id.navigation_home -> {
                 toolbar.title = resources.getString(R.string.list_catalogue)
-                currentFragment = MainFragment.getInstance()
+                currentFragment = MainFragment()
                 loadFragment(currentFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_favorite -> {
                 toolbar.title = resources.getString(R.string.list_favorite_catalogue)
-                currentFragment = FavoriteFragment.getInstance()
+                currentFragment = FavoriteFragment()
                 loadFragment(currentFragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -165,22 +165,6 @@ class MainActivity : BaseActivity<MainViewModel>(), IClickItem {
     }
 
     private fun loadFragment(fragment: Fragment) {
-//        val getFragment = supportFragmentManager.findFragmentById(R.id.container_navigation_fragment)
-//
-//        if (getFragment != null) {
-//            supportFragmentManager.beginTransaction()
-//                .remove(getFragment)
-//                .add(R.id.container_navigation_fragment, fragment, fragment.javaClass.simpleName)
-//                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//                .addToBackStack(null)
-//                .commit()
-//        } else {
-//            supportFragmentManager.beginTransaction()
-//                .add(R.id.container_navigation_fragment, fragment, fragment.javaClass.simpleName)
-//                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//                .addToBackStack(null)
-//                .commit()
-//        }
         supportFragmentManager.beginTransaction()
             .replace(R.id.container_navigation_fragment, fragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)

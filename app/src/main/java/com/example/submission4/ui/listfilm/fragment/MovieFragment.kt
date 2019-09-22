@@ -1,7 +1,6 @@
 package com.example.submission4.ui.listfilm.fragment
 
 import android.content.res.Configuration
-import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -22,20 +21,6 @@ class MovieFragment: BaseFragment<MovieViewModel>() {
     override val viewModel: MovieViewModel by currentScope.viewModel(this)
 
     override fun getLayoutRestId(): Int = R.layout.fragment_movie
-
-    companion object {
-        // singleton
-
-        @Volatile private var INSTANCE: MovieFragment? = null
-        fun getInstance(): MovieFragment {
-            return INSTANCE ?: synchronized(this){
-                MovieFragment().also {
-                    INSTANCE = it
-                }
-            }
-        }
-    }
-
 
     override fun setUpView() {
         resources.let {

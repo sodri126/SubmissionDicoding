@@ -14,9 +14,9 @@ import java.lang.NullPointerException
 class FavoriteViewPagerAdapter(private val context: Context, supportFragmentManager: FragmentManager, private val tabCount: Int): FragmentStatePagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> MovieFavoriteFragment.getInstance()
-            1 -> TvShowFavoriteFragment.getInstance()
-            else -> MovieFavoriteFragment.getInstance()
+            0 -> MovieFavoriteFragment()
+            1 -> TvShowFavoriteFragment()
+            else -> MovieFavoriteFragment()
         }
     }
 

@@ -19,20 +19,8 @@ import org.koin.androidx.scope.currentScope
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieFavoriteFragment : BaseFragment<MovieFavoriteViewModel>() {
-//    private val movieAdapter by lazy { MovieAdapter<MovieEntity>(clickItem = this.activity as MainActivity) }
     override val viewModel: MovieFavoriteViewModel by currentScope.viewModel(this)
-    companion object {
-        // singleton
-        @Volatile private var INSTANCE: MovieFavoriteFragment? = null
-        fun getInstance(): MovieFavoriteFragment {
-            return INSTANCE
-                ?: synchronized(this){
-                    MovieFavoriteFragment().also {
-                        INSTANCE = it
-                    }
-                }
-        }
-    }
+
     override fun getLayoutRestId(): Int = R.layout.fragment_movie
 
     override fun setUpView() {
@@ -44,7 +32,6 @@ class MovieFavoriteFragment : BaseFragment<MovieFavoriteViewModel>() {
             }
         }
         rv_movies.setHasFixedSize(true)
-        //rv_movies.adapter = movieAdapter
     }
 
     override fun setUpObserve() {
@@ -53,9 +40,6 @@ class MovieFavoriteFragment : BaseFragment<MovieFavoriteViewModel>() {
             it?.let {
                 when(it) {
                     is Result.Success -> {
-//                        movieAdapter.movies.clear()
-//                        movieAdapter.movies.addAll(it.data)
-//                        movieAdapter.notifyDataSetChanged()
                         val adapter = MovieAdapter<MovieEntity>(clickItem = this.activity as MainActivity)
                         adapter.movies = it.data as ArrayList<MovieEntity>
                         rv_movies.adapter = adapter

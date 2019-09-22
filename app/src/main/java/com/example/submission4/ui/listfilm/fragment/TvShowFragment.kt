@@ -1,7 +1,6 @@
 package com.example.submission4.ui.listfilm.fragment
 
 import android.content.res.Configuration
-import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -9,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission4.R
 import com.example.submission4.base.BaseActivity
 import com.example.submission4.base.BaseFragment
-import com.example.submission4.data.api.model.DiscoverMovie
 import com.example.submission4.data.api.model.DiscoverTv
 import com.example.submission4.ui.listfilm.activity.MainActivity
 import com.example.submission4.ui.listfilm.adapter.MovieAdapter
@@ -23,18 +21,6 @@ class TvShowFragment : BaseFragment<TvShowViewModel>() {
     override val viewModel: TvShowViewModel by currentScope.viewModel(this)
 
     override fun getLayoutRestId(): Int = R.layout.fragment_tv_show
-
-    companion object {
-        // singleton
-        @Volatile private var INSTANCE: TvShowFragment? = null
-        fun getInstance(): TvShowFragment {
-            return INSTANCE ?: synchronized(this){
-                TvShowFragment().also {
-                    INSTANCE = it
-                }
-            }
-        }
-    }
 
     override fun setUpView() {
         resources.let {
@@ -53,7 +39,6 @@ class TvShowFragment : BaseFragment<TvShowViewModel>() {
             it?.let {
                 when(it) {
                     is Result.Success -> {
-//                        tvAdapter.movies.clear()
                         val adapter = MovieAdapter<DiscoverTv>(clickItem = this.activity as MainActivity)
                         adapter.movies = it.data.results
                         rv_tv_shows.adapter = adapter

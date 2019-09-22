@@ -14,9 +14,9 @@ class MainViewPagerAdapter(private val context: Context, supportFragmentManager:
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> MovieFragment.getInstance()
-            1 -> TvShowFragment.getInstance()
-            else -> MovieFragment.getInstance()
+            0 -> MovieFragment()
+            1 -> TvShowFragment()
+            else -> MovieFragment()
         }
     }
 
