@@ -6,11 +6,4 @@
         android:icon="@drawable/ic_search_white_24dp"
         android:title="@string/general_search"
         app:showAsAction="always|collapseActionView" />
-
-    <item
-        android:id="@+id/action_change_language"
-        android:icon="@drawable/ic_settings_white_24dp"
-        android:title="@string/general_setting_language"
-        app:showAsAction="ifRoom" />
-
 </menu>

@@ -27,6 +27,7 @@
     <string name="general_add_successfully">Add to favorite is successfully</string>
     <string name="general_delete_succesffully">Delete favorite is successfully</string>
     <string name="general_homepage">Homepage</string>
+    <string name="general_search">Search…</string>
     <string name="bottom_navigation_home">Home</string>
     <string name="bottom_navigation_favorite">Favorite</string>
 </resources>

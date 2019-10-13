@@ -17,7 +17,7 @@ class MovieRepository(private val service: FilmService, private val database: Fi
     suspend fun getListMovies() = apiCall {
         val response = service.getListMovies(api)
         return@apiCall if (response.isSuccessful) {
-            val listDiscoverMovie = response.body() as DiscoverResponse<DiscoverMovie>
+            val listDiscoverMovie = response.body() as Response<DiscoverMovie>
             for (discoverMovie in listDiscoverMovie.results) {
                 discoverMovie.isFavorite = isFavoriteMovie(discoverMovie.id)
             }
@@ -30,7 +30,33 @@ class MovieRepository(private val service: FilmService, private val database: Fi
     suspend fun getListTvShows() = apiCall {
         val response = service.getListTvShow(api)
         return@apiCall if (response.isSuccessful) {
-            val listDiscoverTv = response.body() as DiscoverResponse<DiscoverTv>
+            val listDiscoverTv = response.body() as Response<DiscoverTv>
+            for (discoverTv in listDiscoverTv.results) {
+                discoverTv.isFavorite = isFavoriteTvShow(discoverTv.id)
+            }
+            Result.Success(listDiscoverTv)
+        } else {
+            Result.Error(response.message())
+        }
+    }
+
+    suspend fun getListSearchMovies(query: String) = apiCall {
+        val response = service.getListSearchMovies(api = api, query = query)
+        return@apiCall if (response.isSuccessful) {
+            val listDiscoverMovie = response.body() as Response<DiscoverMovie>
+            for (discoverMovie in listDiscoverMovie.results) {
+                discoverMovie.isFavorite = isFavoriteMovie(discoverMovie.id)
+            }
+            Result.Success(listDiscoverMovie)
+        } else {
+            Result.Error(response.message())
+        }
+    }
+
+    suspend fun getListSearchTvShows(query: String) = apiCall {
+        val response = service.getListSearchTvShow(api = api, query = query)
+        return@apiCall if (response.isSuccessful) {
+            val listDiscoverTv = response.body() as Response<DiscoverTv>
             for (discoverTv in listDiscoverTv.results) {
                 discoverTv.isFavorite = isFavoriteTvShow(discoverTv.id)
             }

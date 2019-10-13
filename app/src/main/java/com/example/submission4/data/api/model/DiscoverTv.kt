@@ -10,7 +10,7 @@ data class DiscoverTv(
     @SerializedName("popularity") val popularity: Float,
     @SerializedName("origin_country") val originCountry: ArrayList<String>,
     @SerializedName("vote_count") val voteCount: Int,
-    @SerializedName("first_air_date") val firstAirDate: Date,
+    @SerializedName("first_air_date") val firstAirDate: Date?,
     @SerializedName("backdrop_path") val backdropPath: String?,
     @SerializedName("original_language") val originalLanguage: String,
     @SerializedName("id") val id: Int,

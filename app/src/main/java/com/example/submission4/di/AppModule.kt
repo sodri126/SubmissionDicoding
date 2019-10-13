@@ -13,6 +13,12 @@ import com.example.submission4.ui.listfilm.fragment.TvShowFragment
 import com.example.submission4.ui.listfilm.viewmodel.MainViewModel
 import com.example.submission4.ui.listfilm.viewmodel.MovieViewModel
 import com.example.submission4.ui.listfilm.viewmodel.TvShowViewModel
+import com.example.submission4.ui.searchfilm.SearchActivity
+import com.example.submission4.ui.searchfilm.fragment.MovieSearchFragment
+import com.example.submission4.ui.searchfilm.fragment.TvShowSearchFragment
+import com.example.submission4.ui.searchfilm.viewmodel.MovieSearchViewModel
+import com.example.submission4.ui.searchfilm.viewmodel.SearchViewModel
+import com.example.submission4.ui.searchfilm.viewmodel.TvShowSearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -34,11 +40,23 @@ val appModule = module {
         viewModel { (id: Int, tag: String) -> DetailViewModel(get(), id, tag) }
     }
 
+    scope(named<SearchActivity>()) {
+        viewModel { SearchViewModel(get()) }
+    }
+
     scope(named<MovieFavoriteFragment>()) {
         viewModel { MovieFavoriteViewModel(get()) }
     }
 
     scope(named<TvShowFavoriteFragment>()) {
         viewModel { TvShowFavoriteViewModel(get()) }
+    }
+
+    scope(named<MovieSearchFragment>()) {
+        viewModel { MovieSearchViewModel(get()) }
+    }
+
+    scope(named<TvShowSearchFragment>()) {
+        viewModel { TvShowSearchViewModel(get()) }
     }
 }

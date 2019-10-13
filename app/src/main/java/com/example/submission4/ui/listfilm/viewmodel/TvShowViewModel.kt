@@ -3,7 +3,7 @@ package com.example.submission4.ui.listfilm.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.submission4.data.api.model.DiscoverResponse
+import com.example.submission4.data.api.model.Response
 import com.example.submission4.data.api.model.DiscoverTv
 import com.example.submission4.data.repository.MovieRepository
 import com.example.submission4.utils.Result
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class TvShowViewModel(private val movieRepository: MovieRepository) : ViewModel() {
-    val listTvLiveData: MutableLiveData<Result<DiscoverResponse<DiscoverTv>>> = MutableLiveData()
+    val listTvLiveData: MutableLiveData<Result<Response<DiscoverTv>>> = MutableLiveData()
 
     init {
         fetchListTv()

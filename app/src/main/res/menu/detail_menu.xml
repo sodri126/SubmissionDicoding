@@ -5,5 +5,5 @@
         android:id="@+id/homepage"
         android:icon="@drawable/ic_home_white_24dp"
         android:title="@string/general_homepage"
-        app:showAsAction="always"></item>
+        app:showAsAction="always" />
 </menu>

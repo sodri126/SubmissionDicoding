@@ -19,12 +19,14 @@ import com.example.submission4.ui.favoritefilm.fragment.FavoriteFragment
 import com.example.submission4.ui.listfilm.fragment.MainFragment
 import com.example.submission4.ui.listfilm.navigator.IClickItem
 import com.example.submission4.ui.listfilm.viewmodel.MainViewModel
+import com.example.submission4.ui.searchfilm.SearchActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.scope.currentScope
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : BaseActivity<MainViewModel>(), IClickItem {
     override val viewModel: MainViewModel by currentScope.viewModel(this)
@@ -34,6 +36,9 @@ class MainActivity : BaseActivity<MainViewModel>(), IClickItem {
         const val TAG_MOVIE = "TAGMOVIE"
         const val TAG_TV = "TAGTV"
         const val FRAGMENT_SAVED = "FRAGMENTSAVED"
+
+        @SuppressLint("SimpleDateFormat")
+        val sdf = SimpleDateFormat("MMMM dd, yyyy")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,6 +72,9 @@ class MainActivity : BaseActivity<MainViewModel>(), IClickItem {
         if (item.itemId == R.id.action_change_language) {
             val intentLanguage = Intent(Settings.ACTION_LOCALE_SETTINGS)
             startActivity(intentLanguage)
+        } else if (item.itemId == R.id.action_search) {
+            val intentSearch = Intent(this, SearchActivity::class.java)
+            startActivity(intentSearch)
         }
         return super.onOptionsItemSelected(item)
     }
@@ -109,15 +117,14 @@ class MainActivity : BaseActivity<MainViewModel>(), IClickItem {
         startActivity(intentDetail)
     }
 
-    @SuppressLint("SimpleDateFormat")
     override fun favoriteMovie(movie: Any) {
         when (movie) {
             is DiscoverMovie -> {
-                val sdf = SimpleDateFormat("MMMM dd, yyyy")
+                val releaseDate = movie.releaseDate ?: Date(0)
                 val movieEntity = MovieEntity(
                     movie.id,
                     movie.title,
-                    sdf.format(movie.releaseDate),
+                    sdf.format(releaseDate),
                     movie.overview,
                     movie.voteAverage,
                     movie.posterPath
@@ -126,11 +133,11 @@ class MainActivity : BaseActivity<MainViewModel>(), IClickItem {
                 onError(getString(R.string.general_add_successfully))
             }
             is DiscoverTv -> {
-                val sdf = SimpleDateFormat("MMMM dd, yyyy")
+                val firstAirDate = movie.firstAirDate ?: Date(0)
                 val tvEntity = TvShowEntity(
                     movie.id,
                     movie.name,
-                    sdf.format(movie.firstAirDate),
+                    sdf.format(firstAirDate),
                     movie.overview,
                     movie.voteAverage,
                     movie.posterPath

@@ -11,7 +11,13 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import com.example.submission4.BuildConfig
 import com.example.submission4.R
+import com.example.submission4.data.api.model.DiscoverMovie
+import com.example.submission4.data.api.model.DiscoverTv
+import com.example.submission4.data.local.entity.MovieEntity
+import com.example.submission4.data.local.entity.TvShowEntity
+import com.example.submission4.ui.listfilm.adapter.MovieHolder
 
 fun ImageView.glideLoadImage(
     url: String,
@@ -29,6 +35,7 @@ fun ImageView.glideLoadImage(
                 target: Target<Drawable>?,
                 isFirstResource: Boolean
             ): Boolean {
+                progressBar.visibility = View.GONE
                 return false
             }
 

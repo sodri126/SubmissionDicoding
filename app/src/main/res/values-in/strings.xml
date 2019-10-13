@@ -27,6 +27,7 @@
     <string name="general_add_successfully">Penambahan favorit berhasil</string>
     <string name="general_delete_succesffully">Menghapus favorit berhasil</string>
     <string name="general_homepage">Halaman Utama</string>
+    <string name="general_search">Cari…</string>
     <string name="bottom_navigation_home">Halaman Utama</string>
     <string name="bottom_navigation_favorite">Favorit</string>
 </resources>
