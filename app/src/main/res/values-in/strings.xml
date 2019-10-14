@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Submisi 4</string>
+    <string name="app_name">Submisi 5</string>
     <string name="list_catalogue">Daftar Katalog</string>
     <string name="list_favorite_catalogue">Daftar Favorit Katalog</string>
     <string name="tab_movies">Film</string>
@@ -22,12 +22,26 @@
     <string name="detail_label_runtime_hour">j</string>
     <string name="detail_label_runtime_minute">m</string>
     <string name="general_setting_language">Atur Bahasa</string>
+    <string name="general_setting">Pengaturan</string>
     <string name="general_en">Bahasa Inggris</string>
     <string name="general_ok">OKE</string>
     <string name="general_add_successfully">Penambahan favorit berhasil</string>
     <string name="general_delete_succesffully">Menghapus favorit berhasil</string>
     <string name="general_homepage">Halaman Utama</string>
     <string name="general_search">Cari…</string>
+    <string name="general_setting_notification">Notifikasi</string>
+    <string name="general_setting_notification_reminder_open_apps_title">Pengingat buka aplikasi</string>
+    <string name="general_setting_notification_reminder_release_today_title">Pengingat film baru</string>
+    <string name="general_setting_notification_reminder_open_apps_summary">Pengingat untuk kembali ke aplikasi</string>
+    <string name="general_setting_notification_reminder_release_today_summary">Pengingat untuk menampilkan apa saja yang diluncurkan film hari ini</string>
+    <string name="general_setting_notification_title">Katalog Film</string>
+    <string name="general_setting_notification_text">Katalog film sedang merindukanmu!</string>
+    <string name="general_setting_content_text">%s sudah dirilis hari ini</string>
     <string name="bottom_navigation_home">Halaman Utama</string>
     <string name="bottom_navigation_favorite">Favorit</string>
+
+    <string-array name="settings">
+        <item>@string/general_setting_language</item>
+        <item>@string/general_setting_notification</item>
+    </string-array>
 </resources>

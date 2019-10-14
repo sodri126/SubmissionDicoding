@@ -3,6 +3,9 @@
     package="com.example.submission4">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".MovieApplication"
@@ -12,7 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.searchfilm.SearchActivity"></activity>
+        <activity
+            android:name=".ui.notification.activity.SettingNotificationActivity"
+            android:label="@string/general_setting_notification"
+            android:theme="@style/SwitchTheme" />
+        <activity android:name=".ui.searchfilm.SearchActivity" />
         <activity android:name=".ui.detailfilm.DetailActivity" />
         <activity
             android:name=".ui.listfilm.activity.MainActivity"
@@ -23,6 +30,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:enabled="true"
+            android:exported="true"
+            android:name=".ui.notification.daily.DailyReminder" />
+
+        <receiver
+            android:enabled="true"
+            android:exported="true"
+            android:name=".ui.notification.releasetoday.ReleaseTodayReminder"/>
+
 
         <meta-data
             android:name="preloaded_fonts"

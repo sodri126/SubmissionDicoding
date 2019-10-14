@@ -9,6 +9,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SwitchTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@color/colorSecondaryWhiteOpacity</item>
+    </style>
+
     <style name="TabLayout" parent="Widget.Design.TabLayout">
         <item name="tabTextColor">@color/colorWhiteOpacity</item>
         <item name="tabSelectedTextColor">@android:color/white</item>

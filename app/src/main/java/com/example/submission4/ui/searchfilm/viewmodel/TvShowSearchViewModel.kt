@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.submission4.data.api.model.Response
+import com.example.submission4.data.api.model.GeneralResponse
 import com.example.submission4.data.api.model.DiscoverTv
 import com.example.submission4.data.repository.MovieRepository
 import com.example.submission4.utils.Result
@@ -13,9 +13,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class TvShowSearchViewModel(private val movieRepository: MovieRepository) : ViewModel() {
-    private val mutableListTvShowMovies: MutableLiveData<Result<Response<DiscoverTv>>> = MutableLiveData()
+    private val mutableListTvShowMovies: MutableLiveData<Result<GeneralResponse<DiscoverTv>>> = MutableLiveData()
 
-    fun getLiveDataListTvShow(): LiveData<Result<Response<DiscoverTv>>> = mutableListTvShowMovies
+    fun getLiveDataListTvShow(): LiveData<Result<GeneralResponse<DiscoverTv>>> = mutableListTvShowMovies
 
     fun fetchSearchTvShow(query: String) {
         viewModelScope.launch {

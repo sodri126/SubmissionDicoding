@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.submission4.data.api.model.DiscoverMovie
-import com.example.submission4.data.api.model.Response
+import com.example.submission4.data.api.model.GeneralResponse
 import com.example.submission4.data.repository.MovieRepository
 import com.example.submission4.utils.Result
 import kotlinx.coroutines.Dispatchers
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MovieViewModel(private val movieRepository: MovieRepository) : ViewModel() {
-    val listMovieLiveData: MutableLiveData<Result<Response<DiscoverMovie>>> =
+    val listMovieLiveData: MutableLiveData<Result<GeneralResponse<DiscoverMovie>>> =
         MutableLiveData()
 
     init {

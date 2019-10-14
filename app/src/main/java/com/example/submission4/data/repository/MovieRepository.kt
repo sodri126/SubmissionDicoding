@@ -1,5 +1,6 @@
 package com.example.submission4.data.repository
 
+import android.annotation.SuppressLint
 import com.example.submission4.BuildConfig
 import com.example.submission4.data.api.FilmService
 import com.example.submission4.data.api.model.*
@@ -8,16 +9,21 @@ import com.example.submission4.data.local.entity.MovieEntity
 import com.example.submission4.data.local.entity.TvShowEntity
 import com.example.submission4.utils.Result
 import com.example.submission4.utils.apiCall
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.util.*
 
 
 class MovieRepository(private val service: FilmService, private val database: FilmRoomDatabase) {
     private val api: String = BuildConfig.API_KEY
+    @SuppressLint("SimpleDateFormat")
+    private val sdf = SimpleDateFormat("yyyy-MM-dd")
 
     // web services
     suspend fun getListMovies() = apiCall {
         val response = service.getListMovies(api)
         return@apiCall if (response.isSuccessful) {
-            val listDiscoverMovie = response.body() as Response<DiscoverMovie>
+            val listDiscoverMovie = response.body() as GeneralResponse<DiscoverMovie>
             for (discoverMovie in listDiscoverMovie.results) {
                 discoverMovie.isFavorite = isFavoriteMovie(discoverMovie.id)
             }
@@ -30,7 +36,7 @@ class MovieRepository(private val service: FilmService, private val database: Fi
     suspend fun getListTvShows() = apiCall {
         val response = service.getListTvShow(api)
         return@apiCall if (response.isSuccessful) {
-            val listDiscoverTv = response.body() as Response<DiscoverTv>
+            val listDiscoverTv = response.body() as GeneralResponse<DiscoverTv>
             for (discoverTv in listDiscoverTv.results) {
                 discoverTv.isFavorite = isFavoriteTvShow(discoverTv.id)
             }
@@ -43,7 +49,7 @@ class MovieRepository(private val service: FilmService, private val database: Fi
     suspend fun getListSearchMovies(query: String) = apiCall {
         val response = service.getListSearchMovies(api = api, query = query)
         return@apiCall if (response.isSuccessful) {
-            val listDiscoverMovie = response.body() as Response<DiscoverMovie>
+            val listDiscoverMovie = response.body() as GeneralResponse<DiscoverMovie>
             for (discoverMovie in listDiscoverMovie.results) {
                 discoverMovie.isFavorite = isFavoriteMovie(discoverMovie.id)
             }
@@ -56,11 +62,21 @@ class MovieRepository(private val service: FilmService, private val database: Fi
     suspend fun getListSearchTvShows(query: String) = apiCall {
         val response = service.getListSearchTvShow(api = api, query = query)
         return@apiCall if (response.isSuccessful) {
-            val listDiscoverTv = response.body() as Response<DiscoverTv>
+            val listDiscoverTv = response.body() as GeneralResponse<DiscoverTv>
             for (discoverTv in listDiscoverTv.results) {
                 discoverTv.isFavorite = isFavoriteTvShow(discoverTv.id)
             }
             Result.Success(listDiscoverTv)
+        } else {
+            Result.Error(response.message())
+        }
+    }
+
+    suspend fun getListMoviesToday() = apiCall {
+        val response = service.getListMoviesToday(api, sdf.format(Calendar.getInstance().time), sdf.format(Calendar.getInstance().time))
+        return@apiCall if (response.isSuccessful) {
+            val listDiscoverMovie = response.body() as GeneralResponse<DiscoverMovie>
+            Result.Success(listDiscoverMovie)
         } else {
             Result.Error(response.message())
         }

@@ -19,6 +19,8 @@ android {
             buildConfigField "String", "API_VERSION", "\"3\""
             buildConfigField "String", "API_KEY", "\"43a3df8c04c3b0c84a66fe9d2795cb0a\""
             buildConfigField "String", "PATH_IMG", "\"https://image.tmdb.org/t/p/\""
+            buildConfigField "int", "DAILY_OPEN_APPS_HOUR", "7"
+            buildConfigField "int", "RELEASE_MOVIE_HOUR", "8"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -27,6 +29,8 @@ android {
             buildConfigField "String", "API_VERSION", "\"3\""
             buildConfigField "String", "API_KEY", "\"43a3df8c04c3b0c84a66fe9d2795cb0a\""
             buildConfigField "String", "PATH_IMG", "\"https://image.tmdb.org/t/p/\""
+            buildConfigField "int", "DAILY_OPEN_APPS_HOUR", "7"
+            buildConfigField "int", "RELEASE_MOVIE_HOUR", "8"
         }
     }
     androidExtensions {
@@ -43,6 +47,7 @@ dependencies {
     implementation "androidx.cardview:cardview:1.0.0"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'androidx.preference:preference:1.1.0-alpha05'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

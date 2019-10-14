@@ -1,6 +1,7 @@
 package com.example.submission4.ui.listfilm.activity
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
@@ -19,6 +20,7 @@ import com.example.submission4.ui.favoritefilm.fragment.FavoriteFragment
 import com.example.submission4.ui.listfilm.fragment.MainFragment
 import com.example.submission4.ui.listfilm.navigator.IClickItem
 import com.example.submission4.ui.listfilm.viewmodel.MainViewModel
+import com.example.submission4.ui.notification.activity.SettingNotificationActivity
 import com.example.submission4.ui.searchfilm.SearchActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -70,8 +72,20 @@ class MainActivity : BaseActivity<MainViewModel>(), IClickItem {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_change_language) {
-            val intentLanguage = Intent(Settings.ACTION_LOCALE_SETTINGS)
-            startActivity(intentLanguage)
+            val alertDialog = AlertDialog.Builder(this@MainActivity)
+            alertDialog.setTitle(R.string.general_setting)
+            alertDialog.setItems(resources.getStringArray(R.array.settings)) {_,position->
+                when (position) {
+                    0 -> {
+                        val intentLanguage = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                        startActivity(intentLanguage)
+                    }
+                    1 -> {
+                        val intentNotification = Intent(this, SettingNotificationActivity::class.java)
+                        startActivity(intentNotification)
+                    }
+                }
+            }.show()
         } else if (item.itemId == R.id.action_search) {
             val intentSearch = Intent(this, SearchActivity::class.java)
             startActivity(intentSearch)

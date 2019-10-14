@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Submission 4</string>
+    <string name="app_name">Submission 5</string>
     <string name="list_catalogue">List Catalogue</string>
     <string name="list_favorite_catalogue">List Favorite Catalogue</string>
     <string name="tab_movies">Movies</string>
@@ -22,12 +22,28 @@
     <string name="detail_label_runtime_hour">h</string>
     <string name="detail_label_runtime_minute">m</string>
     <string name="general_setting_language">Setting Language</string>
+    <string name="general_setting">Setting</string>
     <string name="general_en">English</string>
     <string name="general_ok">OK</string>
     <string name="general_add_successfully">Add to favorite is successfully</string>
     <string name="general_delete_succesffully">Delete favorite is successfully</string>
     <string name="general_homepage">Homepage</string>
     <string name="general_search">Search…</string>
+    <string name="general_setting_notification">Notification</string>
+    <string name="general_setting_notification_reminder_open_apps_key" translatable="false">reminder_open_apps</string>
+    <string name="general_setting_notification_reminder_release_today_key" translatable="false">reminder_release_today</string>
+    <string name="general_setting_notification_reminder_open_apps_title">Daily Reminder</string>
+    <string name="general_setting_notification_reminder_release_today_title">Release Reminder</string>
+    <string name="general_setting_notification_reminder_open_apps_summary">Reminder for return to app</string>
+    <string name="general_setting_notification_reminder_release_today_summary">Reminder showing the movie that release today</string>
+    <string name="general_setting_notification_title">Catalog Movie</string>
+    <string name="general_setting_notification_text">Catalog Movie is missing you!</string>
+    <string name="general_setting_content_text">%1$s has been release today</string>
     <string name="bottom_navigation_home">Home</string>
     <string name="bottom_navigation_favorite">Favorite</string>
+
+    <string-array name="settings">
+        <item>@string/general_setting_language</item>
+        <item>@string/general_setting_notification</item>
+    </string-array>
 </resources>

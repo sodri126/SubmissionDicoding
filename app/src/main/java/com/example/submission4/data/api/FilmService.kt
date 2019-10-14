@@ -16,10 +16,10 @@ import java.util.concurrent.TimeUnit
 
 interface FilmService {
     @GET("discover/movie")
-    suspend fun getListMovies(@Query("api_key") api: String, @Query("page") page: Int = 1, @Query("with_original_language") withOriginalLanguage: String = "en"): Response<com.example.submission4.data.api.model.Response<DiscoverMovie>>
+    suspend fun getListMovies(@Query("api_key") api: String, @Query("page") page: Int = 1, @Query("with_original_language") withOriginalLanguage: String = "en"): Response<GeneralResponse<DiscoverMovie>>
 
     @GET("discover/tv")
-    suspend fun getListTvShow(@Query("api_key") api: String, @Query("page") page: Int = 1, @Query("with_original_language") withOriginalLanguage: String = "en"): Response<com.example.submission4.data.api.model.Response<DiscoverTv>>
+    suspend fun getListTvShow(@Query("api_key") api: String, @Query("page") page: Int = 1, @Query("with_original_language") withOriginalLanguage: String = "en"): Response<GeneralResponse<DiscoverTv>>
 
     @GET("movie/{id_movie}")
     suspend fun getDetailMovie(@Path("id_movie") idMovie: Int, @Query("api_key") api: String): Response<DetailMovie>
@@ -28,10 +28,13 @@ interface FilmService {
     suspend fun getDetailTvShow(@Path("id_tv") idTv: Int, @Query("api_key") api: String): Response<DetailTv>
 
     @GET("search/movie")
-    suspend fun getListSearchMovies(@Query("api_key") api: String, @Query("page") page: Int = 1, @Query("language") language: String = "en", @Query("query") query: String): Response<com.example.submission4.data.api.model.Response<DiscoverMovie>>
+    suspend fun getListSearchMovies(@Query("api_key") api: String, @Query("page") page: Int = 1, @Query("language") language: String = "en", @Query("query") query: String): Response<GeneralResponse<DiscoverMovie>>
 
     @GET("search/tv")
-    suspend fun getListSearchTvShow(@Query("api_key") api: String, @Query("page") page: Int = 1, @Query("language") language: String = "en", @Query("query") query: String): Response<com.example.submission4.data.api.model.Response<DiscoverTv>>
+    suspend fun getListSearchTvShow(@Query("api_key") api: String, @Query("page") page: Int = 1, @Query("language") language: String = "en", @Query("query") query: String): Response<GeneralResponse<DiscoverTv>>
+
+    @GET("discover/movie")
+    suspend fun getListMoviesToday(@Query("api_key") api: String, @Query("primary_release_date.gte") releaseDateGte: String, @Query("primary_release_date.lte") releaseDateLte: String): Response<GeneralResponse<DiscoverMovie>>
 }
 
 object FilmServiceFactory {
