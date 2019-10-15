@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="general_space_normal">10dp</dimen>
+    <dimen name="general_zero_dp">0dp</dimen>
+    <dimen name="general_space_small">5dp</dimen>
+    <dimen name="general_label_slightly_normal">16sp</dimen>
+    <dimen name="general_label_normal">14sp</dimen>
+</resources>

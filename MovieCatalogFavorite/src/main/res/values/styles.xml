@@ -1,11 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Label">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/general_space_normal</item>
+        <item name="android:layout_marginRight">@dimen/general_space_normal</item>
+        <item name="android:paddingBottom">@dimen/general_space_small</item>
+        <item name="android:typeface">normal</item>
+    </style>
+
+    <style name="NormalLabel" parent="Label">
+        <item name="android:textSize">@dimen/general_label_normal</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="LargeLabel" parent="Label">
+        <item name="android:textSize">@dimen/general_label_slightly_normal</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LargeLabel.ItemMovie" parent="LargeLabel">
+        <item name="android:textColor">@color/colorBlackLabel</item>
+    </style>
+
+    <style name="NormalLabel.ItemMovie" parent="NormalLabel">
+        <item name="android:textColor">@color/colorBlackLabel</item>
+    </style>
 </resources>

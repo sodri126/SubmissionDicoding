@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.submission4">
+    package="com.example.submission5">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name=".MovieApplication"
+        android:name="com.example.submission5.MovieApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,13 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.notification.activity.SettingNotificationActivity"
+            android:name="com.example.submission5.ui.notification.activity.SettingNotificationActivity"
             android:label="@string/general_setting_notification"
             android:theme="@style/SwitchTheme" />
-        <activity android:name=".ui.searchfilm.SearchActivity" />
-        <activity android:name=".ui.detailfilm.DetailActivity" />
+        <activity android:name="com.example.submission5.ui.searchfilm.SearchActivity" />
+        <activity android:name="com.example.submission5.ui.detailfilm.DetailActivity" />
         <activity
-            android:name=".ui.listfilm.activity.MainActivity"
+            android:name="com.example.submission5.ui.listfilm.activity.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,12 +34,12 @@
         <receiver
             android:enabled="true"
             android:exported="true"
-            android:name=".ui.notification.daily.DailyReminder" />
+            android:name="com.example.submission5.ui.notification.daily.DailyReminder" />
 
         <receiver
             android:enabled="true"
             android:exported="true"
-            android:name=".ui.notification.releasetoday.ReleaseTodayReminder"/>
+            android:name="com.example.submission5.ui.notification.releasetoday.ReleaseTodayReminder"/>
 
 
         <meta-data
