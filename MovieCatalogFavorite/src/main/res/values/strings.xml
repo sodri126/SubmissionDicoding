@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Movie Catalog Favorite</string>
+    <string name="item_image_content_description">This is Poster Image Movie</string>
 </resources>

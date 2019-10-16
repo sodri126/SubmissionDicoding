@@ -1,7 +1,6 @@
 package com.example.submission5.ui.listfilm.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -84,10 +83,10 @@ class MovieHolder(view: View, private val onClickItem: IClickItem) : RecyclerVie
 
     fun bind(movie: DiscoverMovie) {
         imgMovie.glideLoadImage(
-            "${BuildConfig.PATH_IMG}/w780${movie.posterPath}",
-            780,
-            500,
-            progressbarImg
+                "${BuildConfig.PATH_IMG}/w780${movie.posterPath}",
+        780,
+        500,
+        progressbarImg
         )
         txtTitleMovie.text = if (movie.title.length >= 24) "${movie.title.substring(
             0,
@@ -119,7 +118,6 @@ class MovieHolder(view: View, private val onClickItem: IClickItem) : RecyclerVie
                 fabFavorite.setImageResource(R.drawable.ic_favorite_white_24dp)
                 movie.isFavorite = true
             }
-            Log.d("TestFavorite", movie.isFavorite.toString())
         }
         containerItemMovie.setOnClickListener {
             this.onClickItem.detailInformation(movie)

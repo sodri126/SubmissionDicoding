@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SubmissionDicoding.iml" filepath="$PROJECT_DIR$/.idea/SubmissionDicoding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SubmissionDicoding.iml" filepath="$PROJECT_DIR$/SubmissionDicoding.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/MovieCatalogFavorite/moviecatalogfavorite.iml" filepath="$PROJECT_DIR$/MovieCatalogFavorite/moviecatalogfavorite.iml" />
     </modules>

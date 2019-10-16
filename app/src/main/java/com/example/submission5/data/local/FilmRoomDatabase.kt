@@ -9,7 +9,7 @@ import com.example.submission5.data.local.dao.TvShowDao
 import com.example.submission5.data.local.entity.MovieEntity
 import com.example.submission5.data.local.entity.TvShowEntity
 
-@Database(entities = [MovieEntity::class, TvShowEntity::class], version = 1)
+@Database(entities = [MovieEntity::class, TvShowEntity::class], version = 1, exportSchema = false)
 abstract class FilmRoomDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao
     abstract fun tvShowDao(): TvShowDao

@@ -5,4 +5,13 @@
     <dimen name="general_space_small">5dp</dimen>
     <dimen name="general_label_slightly_normal">16sp</dimen>
     <dimen name="general_label_normal">14sp</dimen>
+    <dimen name="item_movie_card_view_height">210dp</dimen>
+    <dimen name="item_movie_card_view_container_height">180dp</dimen>
+    <dimen name="item_movie_card_view_radius">5dp</dimen>
+    <dimen name="item_movie_image_width">100dp</dimen>
+    <dimen name="general_space_big">15dp</dimen>
+    <dimen name="progress_bar_width_normal">64dp</dimen>
+    <dimen name="progress_bar_height_normal">64dp</dimen>
+    <dimen name="line_spacing_text">1.25</dimen>
+    <dimen name="general_space_rating">3dp</dimen>
 </resources>

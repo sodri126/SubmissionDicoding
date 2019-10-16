@@ -38,6 +38,7 @@ interface FilmService {
 }
 
 object FilmServiceFactory {
+    @Volatile
     private var INSTANCE: FilmService? = null
     private const val readTimeOut = 10L
     private const val connectTimeOut = 10L

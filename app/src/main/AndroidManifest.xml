@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <permission android:name="com.example.submission5.READ_DATABASE" android:protectionLevel="normal"/>
+    <permission android:name="com.example.submission5.WRITE_DATABASE" android:protectionLevel="normal"/>
+
     <application
         android:name="com.example.submission5.MovieApplication"
         android:allowBackup="true"
@@ -15,6 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <provider
+            android:authorities="com.example.submission5.data.local.provider"
+            android:name=".data.local.provider.FavoriteMovieProvider"
+            android:exported="true"
+            android:readPermission="com.example.submission5.READ_DATABASE"
+            android:writePermission="com.example.submission5.WRITE_DATABASE" />
+
         <activity
             android:name="com.example.submission5.ui.notification.activity.SettingNotificationActivity"
             android:label="@string/general_setting_notification"
