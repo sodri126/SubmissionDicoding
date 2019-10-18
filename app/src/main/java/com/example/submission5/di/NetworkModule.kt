@@ -13,7 +13,7 @@ val networkModule = module {
     single {
         GsonBuilder()
             .serializeNulls()
-            .registerTypeAdapter(Date::class.java, object: JsonDeserializer<Date> {
+            .registerTypeAdapter(Date::class.java, object : JsonDeserializer<Date> {
                 private val sdf = SimpleDateFormat("yyyy-MM-dd")
                 @Throws(JsonParseException::class)
                 override fun deserialize(

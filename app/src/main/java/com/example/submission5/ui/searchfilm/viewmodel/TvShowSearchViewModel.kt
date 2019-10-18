@@ -13,9 +13,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class TvShowSearchViewModel(private val movieRepository: MovieRepository) : ViewModel() {
-    private val mutableListTvShowMovies: MutableLiveData<Result<GeneralResponse<DiscoverTv>>> = MutableLiveData()
+    private val mutableListTvShowMovies: MutableLiveData<Result<GeneralResponse<DiscoverTv>>> =
+        MutableLiveData()
 
-    fun getLiveDataListTvShow(): LiveData<Result<GeneralResponse<DiscoverTv>>> = mutableListTvShowMovies
+    fun getLiveDataListTvShow(): LiveData<Result<GeneralResponse<DiscoverTv>>> =
+        mutableListTvShowMovies
 
     fun fetchSearchTvShow(query: String) {
         viewModelScope.launch {

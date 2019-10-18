@@ -5,4 +5,5 @@
     <color name="colorAccent">@android:color/white</color>
     <color name="colorBlackLabel">#D9000000</color>
     <color name="colorRating">#B3000000</color>
+    <color name="colorWhiteOpacity">#99FFFFFF</color>
 </resources>

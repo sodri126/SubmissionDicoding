@@ -72,7 +72,11 @@ class MovieRepository(private val service: FilmService, private val database: Fi
     }
 
     suspend fun getListMoviesToday() = apiCall {
-        val response = service.getListMoviesToday(api, sdf.format(Calendar.getInstance().time), sdf.format(Calendar.getInstance().time))
+        val response = service.getListMoviesToday(
+            api,
+            sdf.format(Calendar.getInstance().time),
+            sdf.format(Calendar.getInstance().time)
+        )
         return@apiCall if (response.isSuccessful) {
             val listDiscoverMovie = response.body() as GeneralResponse<DiscoverMovie>
             Result.Success(listDiscoverMovie)

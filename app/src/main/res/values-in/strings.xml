@@ -44,4 +44,6 @@
         <item>@string/general_setting_language</item>
         <item>@string/general_setting_notification</item>
     </string-array>
+
+    <string name="empty_data">Data kosong</string>
 </resources>

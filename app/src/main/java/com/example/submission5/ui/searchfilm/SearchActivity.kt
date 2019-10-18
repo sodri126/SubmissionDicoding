@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.SearchView
 import com.example.submission5.R
 import com.example.submission5.base.BaseActivity
@@ -39,7 +40,7 @@ class SearchActivity : BaseActivity<SearchViewModel>(), IClickItem {
             searchManager.getSearchableInfo(
                 componentName
             )
-            setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextChange(text: String?): Boolean {
                     return true
                 }
@@ -48,6 +49,9 @@ class SearchActivity : BaseActivity<SearchViewModel>(), IClickItem {
                     query?.let {
                         processSearch(it)
                     }
+                    val methodManager =
+                        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    methodManager.hideSoftInputFromWindow(search_view.windowToken, 0)
                     return false
                 }
             })
@@ -56,7 +60,7 @@ class SearchActivity : BaseActivity<SearchViewModel>(), IClickItem {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        savedInstanceState.apply{
+        savedInstanceState.apply {
             val submitSearchData = getBoolean("submitSearchData")
             if (submitSearchData) {
                 container_fragment.adapter = searchAdapter
@@ -140,6 +144,7 @@ class SearchActivity : BaseActivity<SearchViewModel>(), IClickItem {
             }
         }
     }
+
     override fun onError(e: String) {
         super.onError(e)
         val snackbar = Snackbar.make(main_container, e, Snackbar.LENGTH_LONG)

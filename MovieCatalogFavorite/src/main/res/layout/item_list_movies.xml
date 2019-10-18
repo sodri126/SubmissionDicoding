@@ -9,7 +9,6 @@
     android:layout_marginRight="@dimen/general_space_big">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/container_card_view"
         android:layout_width="@dimen/general_zero_dp"
         android:layout_height="@dimen/item_movie_card_view_container_height"
         android:background="@android:color/white"
@@ -20,7 +19,6 @@
         card_view:cardElevation="@dimen/general_zero_dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/container_item_movie"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?attr/selectableItemBackground"

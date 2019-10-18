@@ -2,27 +2,33 @@ package com.example.submission5.data.local.provider
 
 import android.content.ContentProvider
 import android.content.ContentValues
+import android.content.Context
 import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
 import com.example.submission5.data.local.FilmRoomDatabase
-import org.koin.android.ext.android.inject
 
-class FavoriteMovieProvider: ContentProvider() {
+class FavoriteMovieProvider : ContentProvider() {
     companion object {
-        private const val TABLE_NAME = "FAVORITE_MOVIE"
+        private const val TABLE_FAVORITE_MOVIE = "FAVORITE_MOVIE"
+        private const val TABLE_FAVORITE_TV = "FAVORITE_TV"
         private const val AUTHORITY = "com.example.submission5.data.local.provider"
         private const val FAVORITE_MOVIE = 1
+        private const val FAVORITE_TV = 2
         private val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
         init {
-            uriMatcher.addURI(AUTHORITY, TABLE_NAME, FAVORITE_MOVIE)
+            uriMatcher.addURI(AUTHORITY, TABLE_FAVORITE_MOVIE, FAVORITE_MOVIE)
+            uriMatcher.addURI(AUTHORITY, TABLE_FAVORITE_TV, FAVORITE_TV)
         }
 
     }
-    private val filmDatabase: FilmRoomDatabase by inject()
 
-    override fun onCreate(): Boolean = true
+    private val filmDatabase: FilmRoomDatabase by lazy { FilmRoomDatabase.getDatabase(context as Context) }
+
+    override fun onCreate(): Boolean {
+        return true
+    }
 
     override fun insert(p0: Uri, p1: ContentValues?): Uri? = null
 
@@ -39,7 +45,10 @@ class FavoriteMovieProvider: ContentProvider() {
         selectionArgs: Array<out String>?,
         sortOrder: String?
     ): Cursor? {
-        return if(uriMatcher.match(uri) == FAVORITE_MOVIE) filmDatabase.movieDao().getAllProviderMovies()
-        else null
+        return when (uriMatcher.match(uri)) {
+            FAVORITE_TV -> filmDatabase.tvShowDao().getAllProviderTvs()
+            FAVORITE_MOVIE -> filmDatabase.movieDao().getAllProviderMovies()
+            else -> null
+        }
     }
 }

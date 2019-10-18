@@ -19,4 +19,10 @@
     <dimen name="progress_bar_width_normal">64dp</dimen>
     <dimen name="progress_bar_height_normal">64dp</dimen>
     <dimen name="line_spacing_text">1.25</dimen>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
 </resources>

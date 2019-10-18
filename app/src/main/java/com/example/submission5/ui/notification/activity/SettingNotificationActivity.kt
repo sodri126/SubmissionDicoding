@@ -40,9 +40,18 @@ class SettingNotificationActivity : AppCompatActivity() {
         }
     }
 
-    class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
-        private val dailyReminderPreference: SwitchPreference by lazy { findPreference<SwitchPreference>(keyDaily)!! }
-        private val releaseReminderPreference: SwitchPreference by lazy { findPreference<SwitchPreference>(keyRelease)!! }
+    class SettingsFragment : PreferenceFragmentCompat(),
+        SharedPreferences.OnSharedPreferenceChangeListener {
+        private val dailyReminderPreference: SwitchPreference by lazy {
+            findPreference<SwitchPreference>(
+                keyDaily
+            )!!
+        }
+        private val releaseReminderPreference: SwitchPreference by lazy {
+            findPreference<SwitchPreference>(
+                keyRelease
+            )!!
+        }
 
         private val keyDaily by lazy { getString(R.string.general_setting_notification_reminder_open_apps_key) }
         private val keyRelease by lazy { getString(R.string.general_setting_notification_reminder_release_today_key) }
@@ -80,13 +89,17 @@ class SettingNotificationActivity : AppCompatActivity() {
             key?.let {
                 if (it == keyDaily) {
                     dailyReminderPreference.isChecked = sp?.getBoolean(keyDaily, false)!!
-                    if(dailyReminderPreference.isChecked) dailyReminder.setDailyReminder(requireContext())
+                    if (dailyReminderPreference.isChecked) dailyReminder.setDailyReminder(
+                        requireContext()
+                    )
                     else dailyReminder.cancelReminder(requireContext())
                 }
 
                 if (it == keyRelease) {
                     releaseReminderPreference.isChecked = sp?.getBoolean(keyRelease, false)!!
-                    if (releaseReminderPreference.isChecked) releaseToday.setReleaseReminderToday(requireContext())
+                    if (releaseReminderPreference.isChecked) releaseToday.setReleaseReminderToday(
+                        requireContext()
+                    )
                     else releaseToday.cancelReleaseReminderToday(requireContext())
                 }
             }

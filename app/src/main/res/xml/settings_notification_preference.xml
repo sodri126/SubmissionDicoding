@@ -10,7 +10,7 @@
         android:defaultValue="false"
         android:key="@string/general_setting_notification_reminder_release_today_key"
         android:summary="@string/general_setting_notification_reminder_release_today_summary"
-        android:title="@string/general_setting_notification_reminder_release_today_title"
-        android:theme="@style/SwitchTheme" />
+        android:theme="@style/SwitchTheme"
+        android:title="@string/general_setting_notification_reminder_release_today_title" />
 
 </PreferenceScreen>

@@ -74,14 +74,15 @@ class MainActivity : BaseActivity<MainViewModel>(), IClickItem {
         if (item.itemId == R.id.action_change_language) {
             val alertDialog = AlertDialog.Builder(this@MainActivity)
             alertDialog.setTitle(R.string.general_setting)
-            alertDialog.setItems(resources.getStringArray(R.array.settings)) {_,position->
+            alertDialog.setItems(resources.getStringArray(R.array.settings)) { _, position ->
                 when (position) {
                     0 -> {
                         val intentLanguage = Intent(Settings.ACTION_LOCALE_SETTINGS)
                         startActivity(intentLanguage)
                     }
                     1 -> {
-                        val intentNotification = Intent(this, SettingNotificationActivity::class.java)
+                        val intentNotification =
+                            Intent(this, SettingNotificationActivity::class.java)
                         startActivity(intentNotification)
                     }
                 }

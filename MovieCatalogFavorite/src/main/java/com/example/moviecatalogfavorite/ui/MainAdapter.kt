@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviecatalogfavorite.R
 import com.example.moviecatalogfavorite.data.model.FavoriteMovie
+import com.example.moviecatalogfavorite.data.model.FavoriteTvShow
 import com.example.moviecatalogfavorite.utils.glideLoadImage
 import kotlinx.android.synthetic.main.item_list_movies.view.*
 import java.util.*
@@ -28,8 +29,11 @@ class MainAdapter<T> : RecyclerView.Adapter<MainHolder>(){
             is FavoriteMovie -> {
                 holder.bind(movies[position] as FavoriteMovie)
             }
+            is FavoriteTvShow -> {
+                holder.bind(movies[position] as FavoriteTvShow)
+            }
             else -> {
-
+                holder.bind(movies[position] as FavoriteMovie)
             }
         }
     }
@@ -61,5 +65,25 @@ class MainHolder(view: View): RecyclerView.ViewHolder(view) {
             movie.movieOverview.substring(0, 130).lastIndexOf(' ')
         )}..." else movie.movieOverview
         txtRating.text = movie.movieRate.toString()
+    }
+
+    fun bind(movie: FavoriteTvShow) {
+        imgMovie.glideLoadImage(
+            "https://image.tmdb.org/t/p/w780${movie.tvShowImagePath}",
+            780,
+            500,
+            progressbarImg
+        )
+        txtTitleMovie.text = if (movie.tvShowTitle.length >= 24) "${movie.tvShowTitle.substring(
+            0,
+            24
+        )}..." else movie.tvShowTitle
+        txtReleaseDate.text = movie.tvShowDate
+
+        txtContent.text = if (movie.tvShowOverview.length > 130) "${movie.tvShowOverview.substring(
+            0,
+            movie.tvShowOverview.substring(0, 130).lastIndexOf(' ')
+        )}..." else movie.tvShowOverview
+        txtRating.text = movie.tvShowRate.toString()
     }
 }

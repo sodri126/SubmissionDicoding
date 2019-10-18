@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Favorit Katalog Film</string>
-    <string name="detail_image_backdrop_content_description">Ini adalah gambar latar belakang</string>
+    <string name="item_image_content_description">This is Poster Image Movie</string>
+    <string name="menu_movie">Film</string>
+    <string name="menu_tv">Televisi</string>
+    <string name="activity_favorite_movie">Daftar Favorit Film</string>
+    <string name="activity_favorite_tv">Daftar Favorit Televisi</string>
 </resources>

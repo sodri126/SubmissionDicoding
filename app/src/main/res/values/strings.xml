@@ -38,7 +38,7 @@
     <string name="general_setting_notification_reminder_release_today_summary">Reminder showing the movie that release today</string>
     <string name="general_setting_notification_title">Catalog Movie</string>
     <string name="general_setting_notification_text">Catalog Movie is missing you!</string>
-    <string name="general_setting_content_text">%1$s has been release today</string>
+    <string name="general_setting_content_text">%s has been release today</string>
     <string name="bottom_navigation_home">Home</string>
     <string name="bottom_navigation_favorite">Favorite</string>
 
@@ -46,4 +46,6 @@
         <item>@string/general_setting_language</item>
         <item>@string/general_setting_notification</item>
     </string-array>
+
+    <string name="empty_data">Empty Data</string>
 </resources>

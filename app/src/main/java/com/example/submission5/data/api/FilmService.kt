@@ -28,13 +28,25 @@ interface FilmService {
     suspend fun getDetailTvShow(@Path("id_tv") idTv: Int, @Query("api_key") api: String): Response<DetailTv>
 
     @GET("search/movie")
-    suspend fun getListSearchMovies(@Query("api_key") api: String, @Query("page") page: Int = 1, @Query("language") language: String = "en", @Query("query") query: String): Response<GeneralResponse<DiscoverMovie>>
+    suspend fun getListSearchMovies(
+        @Query("api_key") api: String, @Query("page") page: Int = 1, @Query(
+            "language"
+        ) language: String = "en", @Query("query") query: String
+    ): Response<GeneralResponse<DiscoverMovie>>
 
     @GET("search/tv")
-    suspend fun getListSearchTvShow(@Query("api_key") api: String, @Query("page") page: Int = 1, @Query("language") language: String = "en", @Query("query") query: String): Response<GeneralResponse<DiscoverTv>>
+    suspend fun getListSearchTvShow(
+        @Query("api_key") api: String, @Query("page") page: Int = 1, @Query(
+            "language"
+        ) language: String = "en", @Query("query") query: String
+    ): Response<GeneralResponse<DiscoverTv>>
 
     @GET("discover/movie")
-    suspend fun getListMoviesToday(@Query("api_key") api: String, @Query("primary_release_date.gte") releaseDateGte: String, @Query("primary_release_date.lte") releaseDateLte: String): Response<GeneralResponse<DiscoverMovie>>
+    suspend fun getListMoviesToday(
+        @Query("api_key") api: String, @Query("primary_release_date.gte") releaseDateGte: String, @Query(
+            "primary_release_date.lte"
+        ) releaseDateLte: String
+    ): Response<GeneralResponse<DiscoverMovie>>
 }
 
 object FilmServiceFactory {

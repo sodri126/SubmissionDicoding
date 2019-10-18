@@ -27,6 +27,7 @@ class TvShowSearchFragment : BaseFragment<TvShowSearchViewModel>() {
             }
         }
     }
+
     override val viewModel: TvShowSearchViewModel by currentScope.viewModel(this)
 
     override fun getLayoutRestId(): Int = R.layout.fragment_tv_show
@@ -44,7 +45,6 @@ class TvShowSearchFragment : BaseFragment<TvShowSearchViewModel>() {
         val query = arguments?.getString("query") as String
         viewModel.fetchSearchTvShow(query)
     }
-
 
 
     override fun setUpObserve() {

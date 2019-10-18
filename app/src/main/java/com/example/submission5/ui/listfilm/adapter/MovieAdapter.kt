@@ -24,7 +24,8 @@ import kotlinx.android.synthetic.main.item_list_movies.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MovieAdapter<T: Any>(private val clickItem: IClickItem) : RecyclerView.Adapter<MovieHolder>() {
+class MovieAdapter<T : Any>(private val clickItem: IClickItem) :
+    RecyclerView.Adapter<MovieHolder>() {
     lateinit var movies: ArrayList<T>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHolder {
         return MovieHolder(
@@ -41,7 +42,7 @@ class MovieAdapter<T: Any>(private val clickItem: IClickItem) : RecyclerView.Ada
     override fun onBindViewHolder(holder: MovieHolder, position: Int) {
         return when (movies[position]) {
             is DiscoverMovie -> {
-               holder.bind(movies[position] as DiscoverMovie)
+                holder.bind(movies[position] as DiscoverMovie)
             }
             is DiscoverTv -> {
                 holder.bind(movies[position] as DiscoverTv)
@@ -83,18 +84,19 @@ class MovieHolder(view: View, private val onClickItem: IClickItem) : RecyclerVie
 
     fun bind(movie: DiscoverMovie) {
         imgMovie.glideLoadImage(
-                "${BuildConfig.PATH_IMG}/w780${movie.posterPath}",
-        780,
-        500,
-        progressbarImg
+            "${BuildConfig.PATH_IMG}/w780${movie.posterPath}",
+            780,
+            500,
+            progressbarImg
         )
         txtTitleMovie.text = if (movie.title.length >= 24) "${movie.title.substring(
             0,
             24
         )}..." else movie.title
-        txtReleaseDate.text = if (movie.releaseDate != null) sdf.format(movie.releaseDate) else sdf.format(
-            Date(0)
-        )
+        txtReleaseDate.text =
+            if (movie.releaseDate != null) sdf.format(movie.releaseDate) else sdf.format(
+                Date(0)
+            )
         txtContent.text = if (movie.overview.length > 130) "${movie.overview.substring(
             0,
             movie.overview.substring(0, 130).lastIndexOf(' ')
@@ -111,11 +113,13 @@ class MovieHolder(view: View, private val onClickItem: IClickItem) : RecyclerVie
         fabFavorite.setOnClickListener {
             if (it.tag == R.drawable.ic_favorite_white_24dp) {
                 this.onClickItem.unFavoriteMovie(movie)
-                fabFavorite.setImageResource(R.drawable.ic_favorite_border_white_24dp)
+                (it as FloatingActionButton).setImageResource(R.drawable.ic_favorite_border_white_24dp)
+                it.tag = R.drawable.ic_favorite_border_white_24dp
                 movie.isFavorite = false
             } else {
                 this.onClickItem.favoriteMovie(movie)
-                fabFavorite.setImageResource(R.drawable.ic_favorite_white_24dp)
+                (it as FloatingActionButton).setImageResource(R.drawable.ic_favorite_white_24dp)
+                it.tag = R.drawable.ic_favorite_white_24dp
                 movie.isFavorite = true
             }
         }
@@ -133,7 +137,8 @@ class MovieHolder(view: View, private val onClickItem: IClickItem) : RecyclerVie
         )
         txtTitleMovie.text =
             if (movie.name.length >= 24) "${movie.name.substring(0, 24)}..." else movie.name
-        txtReleaseDate.text = if (movie.firstAirDate != null) sdf.format(movie.firstAirDate) else sdf.format(Date(0))
+        txtReleaseDate.text =
+            if (movie.firstAirDate != null) sdf.format(movie.firstAirDate) else sdf.format(Date(0))
         txtContent.text = if (movie.overview.length > 130) "${movie.overview.substring(
             0,
             movie.overview.substring(0, 130).lastIndexOf(' ')
@@ -149,11 +154,13 @@ class MovieHolder(view: View, private val onClickItem: IClickItem) : RecyclerVie
         fabFavorite.setOnClickListener {
             if (it.tag == R.drawable.ic_favorite_white_24dp) {
                 this.onClickItem.unFavoriteMovie(movie)
-                fabFavorite.setImageResource(R.drawable.ic_favorite_border_white_24dp)
+                (it as FloatingActionButton).setImageResource(R.drawable.ic_favorite_border_white_24dp)
+                it.tag = R.drawable.ic_favorite_border_white_24dp
                 movie.isFavorite = false
             } else {
                 this.onClickItem.favoriteMovie(movie)
-                fabFavorite.setImageResource(R.drawable.ic_favorite_white_24dp)
+                (it as FloatingActionButton).setImageResource(R.drawable.ic_favorite_white_24dp)
+                it.tag = R.drawable.ic_favorite_white_24dp
                 movie.isFavorite = true
             }
         }

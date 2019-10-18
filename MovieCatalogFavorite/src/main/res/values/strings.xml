@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Movie Catalog Favorite</string>
-    <string name="item_image_content_description">This is Poster Image Movie</string>
+    <string name="item_image_content_description">Ini adalah poster</string>
+    <string name="menu_movie">Movie</string>
+    <string name="menu_tv">Tv Show</string>
+    <string name="activity_favorite_movie">List Favorite Movie</string>
+    <string name="activity_favorite_tv">List Favorite Tv Show</string>
 </resources>

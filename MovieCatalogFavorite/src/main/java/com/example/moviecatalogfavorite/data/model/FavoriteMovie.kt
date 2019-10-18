@@ -5,9 +5,6 @@ import com.example.moviecatalogfavorite.data.local.ContentProviderMovieCatalog.g
 import com.example.moviecatalogfavorite.data.local.ContentProviderMovieCatalog.getColumnInt
 import com.example.moviecatalogfavorite.data.local.ContentProviderMovieCatalog.getColumnString
 
-private val MOVIE = "TAGMOVIE"
-private val TV = "TAGTV"
-
 data class FavoriteMovie(
     var movieId: Int = 0,
     var movieImagePath: String? = null,

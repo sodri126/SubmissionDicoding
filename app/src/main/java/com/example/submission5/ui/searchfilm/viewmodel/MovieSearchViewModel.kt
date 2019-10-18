@@ -13,9 +13,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MovieSearchViewModel(private val movieRepository: MovieRepository) : ViewModel() {
-    private val mutableListSearchMovies: MutableLiveData<Result<GeneralResponse<DiscoverMovie>>> = MutableLiveData()
+    private val mutableListSearchMovies: MutableLiveData<Result<GeneralResponse<DiscoverMovie>>> =
+        MutableLiveData()
 
-    fun getLiveDataListMovie(): LiveData<Result<GeneralResponse<DiscoverMovie>>> = mutableListSearchMovies
+    fun getLiveDataListMovie(): LiveData<Result<GeneralResponse<DiscoverMovie>>> =
+        mutableListSearchMovies
 
     fun fetchSearchMovie(query: String) {
         viewModelScope.launch {

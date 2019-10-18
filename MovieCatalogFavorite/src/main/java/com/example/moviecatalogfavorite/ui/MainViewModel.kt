@@ -7,13 +7,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.moviecatalogfavorite.data.MovieFavoriteRepository
 import com.example.moviecatalogfavorite.data.model.FavoriteMovie
+import com.example.moviecatalogfavorite.data.model.FavoriteTvShow
 import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application): AndroidViewModel(application) {
     private val favoriteRepository: MovieFavoriteRepository by lazy { MovieFavoriteRepository(application) }
 
-    private val favoriteMutableLiveData: MutableLiveData<List<FavoriteMovie>> = MutableLiveData()
-    fun favoriteLiveData(): LiveData<List<FavoriteMovie>> = favoriteMutableLiveData
+    private val favoriteMovieMutableLiveData: MutableLiveData<List<FavoriteMovie>> =
+        MutableLiveData()
+
+    fun favoriteMovieLiveData(): LiveData<List<FavoriteMovie>> = favoriteMovieMutableLiveData
+
+    private val favoriteTvMutableLiveData: MutableLiveData<List<FavoriteTvShow>> = MutableLiveData()
+    fun favoriteTvLiveData(): LiveData<List<FavoriteTvShow>> = favoriteTvMutableLiveData
 
     private val loading: MutableLiveData<Boolean> = MutableLiveData()
     fun isLoading(): LiveData<Boolean> = loading
@@ -21,7 +27,15 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
     fun getListMovieFavorite() {
         viewModelScope.launch {
             loading.value = true
-            favoriteMutableLiveData.value = favoriteRepository.getMovieFavoriteList()
+            favoriteMovieMutableLiveData.value = favoriteRepository.getMovieFavoriteList()
+            loading.value = false
+        }
+    }
+
+    fun getListTvFavorite() {
+        viewModelScope.launch {
+            loading.value = true
+            favoriteTvMutableLiveData.value = favoriteRepository.getTvShowFavoriteList()
             loading.value = false
         }
     }

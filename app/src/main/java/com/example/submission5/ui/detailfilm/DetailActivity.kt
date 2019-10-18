@@ -101,11 +101,13 @@ class DetailActivity : BaseActivity<DetailViewModel>() {
 
                 fab_favorite.setOnClickListener {
                     if (fab_favorite.tag == R.drawable.ic_favorite_white_24dp) {
+                        it.tag = R.drawable.ic_favorite_border_white_24dp
                         fab_favorite.setImageResource(R.drawable.ic_favorite_border_white_24dp)
                         model.isFavorite = false
                         viewModel.deleteMovie(model.id)
                         onError(getString(R.string.general_delete_succesffully))
                     } else {
+                        it.tag = R.drawable.ic_favorite_white_24dp
                         fab_favorite.setImageResource(R.drawable.ic_favorite_white_24dp)
                         model.isFavorite = true
                         val movieEntity = MovieEntity(
@@ -160,11 +162,13 @@ class DetailActivity : BaseActivity<DetailViewModel>() {
 
                 fab_favorite.setOnClickListener {
                     if (fab_favorite.tag == R.drawable.ic_favorite_white_24dp) {
+                        it.tag = R.drawable.ic_favorite_border_white_24dp
                         fab_favorite.setImageResource(R.drawable.ic_favorite_border_white_24dp)
                         model.isFavorite = false
                         viewModel.deleteTvShow(model.id)
                         onError(getString(R.string.general_delete_succesffully))
                     } else {
+                        it.tag = R.drawable.ic_favorite_white_24dp
                         fab_favorite.setImageResource(R.drawable.ic_favorite_white_24dp)
                         model.isFavorite = true
                         val tvEntity = TvShowEntity(
@@ -199,7 +203,7 @@ class DetailActivity : BaseActivity<DetailViewModel>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                onBackPressed()
+                finish()
                 true
             }
             R.id.homepage -> {
